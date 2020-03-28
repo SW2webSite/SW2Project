@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/SW2webSite/SW2Project/issues"
   },
-  "homepage": "https://github.com/SW2webSite/SW2Project#readme"
+  "homepage": "https://github.com/SW2webSite/SW2Project#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.6",
+    "mongoose-extend-schema": "^1.0.0"
+  }
 }
