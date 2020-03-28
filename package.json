@@ -1,0 +1,19 @@
+{
+  "name": "sw2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SW2webSite/SW2Project.git"
+  },
+  "author": "SWTeam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SW2webSite/SW2Project/issues"
+  },
+  "homepage": "https://github.com/SW2webSite/SW2Project#readme"
+}
