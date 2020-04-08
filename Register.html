@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+     <head>
+    <meta charset="utf-8">
+
+    <title>Sign Up</title>
+
+ <link rel="stylesheet" href="css\style.css">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+     </head>
+
+
+  <body>
+
+<div class="col-md-8 order-md-1" >
+      <form class="form-signup" novalidate >
+          <img class="logo mb-4" src="image\logo.jpeg" alt="" width="120" height="120" >
+          <h4 class="h3 mb-3 font-weight-normal">Sign Up</h4>
+      <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName" style="font-size:20px">First name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+              Valid first name is required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName" style="font-size:20px">Last name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+              Valid last name is required.
+              </div>
+            </div>
+      </div>
+
+     <div class="mb-3">
+        <label for="username" style="font-size:20px">Username</label>
+          <div class="input-group">
+          <div class="input-group-prepend">
+          <span class="input-group-text">@</span>
+          </div>
+          <input type="text" class="form-control" id="username" placeholder="Username" required>
+          <div class="invalid-feedback" style="width: 100%;">
+          Your username is required.
+          </div>
+          </div>
+      </div>
+
+      <div class="mb-3">
+          <label for="email" style="font-size:20px">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="you@example.com">
+          <div class="invalid-feedback">
+          Please enter a valid email address for shipping updates.
+          </div>
+      </div>
+
+      <div class="mb-3">
+          <label for="password" style="font-size:20px">password</label>
+          <input type="password" class="form-control" id="password" >
+          <div class="invalid-feedback">
+          Please enter a valid password for shipping updates.
+          </div>
+      </div>
+
+
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit" style="background-color:rgba(45,51,83,0.9);">Sign Up</button>
+      </form>
+       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+      </body>
+      </html>
