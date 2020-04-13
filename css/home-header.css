@@ -1,0 +1,21 @@
+#home-header{
+padding: 5% 1% 0.2%;
+text-align: left;
+}
+.imagee{
+width: 100% ;
+height:100%;
+
+}
+.poni{
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+ }
+.onimg{
+   width:100%;
+   height:450px;
+   position: relative;
+   text-align: center;
+   color: black;
+}

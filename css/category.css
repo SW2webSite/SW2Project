@@ -1,0 +1,20 @@
+#category{
+padding:2% 5%;
+margin:auto;
+ }
+.card{
+    margin:auto;
+    margin-bottom:25px;
+    padding:15px;
+    border-radius: 10%;
+  }
+.cateimage{
+    padding:7px;
+    border-radius: 10%;
+    max-width: 100%;
+    max-height: auto;
+  }
+h2{
+font-family: Mistral;
+color: rgba(45,51,83,0.8);
+  }
