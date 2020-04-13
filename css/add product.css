@@ -1,0 +1,55 @@
+body{
+  background-image: url('../image/profileBack.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+.product{
+
+    margin-top: 3%;
+    padding: 3%;
+}
+
+.product-right{
+
+    border-top-right-radius: 10% 50%;
+    border-bottom-right-radius:  10% 50%;
+
+  background-color: rgba(0,0,0,0.2);
+    padding: 15px;
+    width: 100%;
+  
+
+
+}
+
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+.product .product-form{
+    padding: 10%;
+    margin-top: 10%;
+}
+
+
+.product-heading{
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    font-family: Mistral;
+  color: rgba(239,210,48,0.9);
+}
+label {
+  font-family: Mistral;
+  font-size: 32px;
+  color: rgba(45,51,83,0.8);
+}
+.navi{
+    background-color: rgba(0,0,0,0.2);
+}
