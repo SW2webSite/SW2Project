@@ -16,7 +16,7 @@ var products=[];
 var xuser="y"; //visitor "what ever value"
 
 app.get("/",function(req, res){
-  res.render("addProduct" ,{userlog:loged, newproduct:products, myprof:xuser});
+  res.render("" ,{userlog:loged, newproduct:products, myprof:xuser});
 });
 
 app.listen(3000, function() {
