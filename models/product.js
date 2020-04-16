@@ -1,20 +1,17 @@
+const extendSchema = require('mongoose-extend-schema');
 const mongoose = require('mongoose');
-const mongoosastic=require('mongoosastic');
-var schema = mongoose.schema;
+const UserSchema = require('user.js');
 
 
-var ProductSchema = new schema({
+const ProductSchema = new mongoose.Schema({
+name: String,
 category:String,
-name : String,
-price :Number ,
-image:String});
-
+price: Number,
+discribtion: String,
+owner:UserSchema
 });
 
-//ellasticsearch server port 9200
-ProductSchema.plugin(mongoosastic,{
-  hosts:['localhost:9200'
-]
-})
+//  model"product"
+const Product = mongoose.model('product',ProductSchema);
 
 module.exports=mongoose.model('Product',ProductSchema);
