@@ -1,7 +1,5 @@
 //jshint esversion:6
-const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
-
 const PersonSchema = new mongoose.Schema({
   username:{
     type:String,
@@ -19,12 +17,4 @@ const PersonSchema = new mongoose.Schema({
   }
 });
 
-PersonSchema.pre('save', function(next){
-  const user = this;
-  bcrypt.hash(user.password,10, function(err, encrypted){
-    user.password = encrypted;
-    next();
-  });
-});
-
-module.exports = mongoose.model('Person', PersonSchema);
+module.exports = PersonSchema;
