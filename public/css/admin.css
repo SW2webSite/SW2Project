@@ -1,0 +1,45 @@
+body {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  background-image: url('../image/back.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+.loged{
+  float: right;
+  margin-right: 20px;
+}
+.logo{
+margin:120px 50px 0px;
+display: block;
+border-radius: 100%;
+}
+.bbt{
+margin:10px;
+width: 40%;
+padding:50px 0px;
+}
+
+.del{
+width:250px;
+height:100px;
+margin:30px;
+}
+.list-group{
+  margin: auto;
+  position: absolute;
+  right: 200px;
+  width: 500px;
+  padding:80px 0px;
+}
+.list-group-item{
+/* padding: relative; */
+width: 110%;
+margin: 10px;
+opacity: 0.5;
+}
+.far{
+  position: absolute;
+  right: 16px;
+}

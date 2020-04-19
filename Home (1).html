@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--comment -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <!--css style -->
+    <link rel="stylesheet" href="css\my-style.css">
+    <link rel="stylesheet" href="css\nav.css">
+    <link rel="stylesheet" href="css\home-header.css">
+    <link rel="stylesheet" href="css\category.css">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Abel|Josefin+Sans&display=swap" rel="stylesheet">
+    <!--googel fontawesome-->
+    <script src="https://kit.fontawesome.com/23d6254725.js" crossorigin="anonymous"></script>
+    <!--bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+<!--  nav bar  -->
+<section id="nav" >
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<!--  <a class="navbar-brand" href="#">flyBuy</a>__-->
+  <img class ="logoo" src="image\logo.jpeg" width="40" height="40" alt="">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active"><a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a></li>
+      <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catigory</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">catigory</a>
+          <a class="dropdown-item" href="#">Another catigory</a>
+          <a class="dropdown-item" href="#">Another catigory</a>
+          </div>
+     </li>
+    </ul>
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-dark  my-2 my-sm-0" type="submit" style="background-color:rgba(45,51,83,0.7);">Search</button>
+
+    <li class="nav-item navbar-nav ml-auto"><a class="nav-link" href="#">Sign in</a></li>
+  </form>
+  </div>
+</nav>
+</section>
+<!-- end nav     -->
+
+<!-- header   -->
+<section id="home-header">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="3000" data-pause="hover">
+    <div class="carousel-inner">
+<!--end header-->
+<!-- about us   -->
+      <div class="carousel-item active">
+      <div class="onimg">
+      <img class="imagee" src="image\about.png" class="d-block w-100" alt="...">
+      <div class="poni">
+        <h1 class="display-3">About US!</h1>
+        <div>
+          <p>This is a template for a simple marketing or informational website.</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button" style="background-color:rgba(45,51,83,0.9);">Learn more &raquo;</a></p>
+        </div>
+      </div>
+      </div>
+      </div>
+<!-- contact us   -->
+      <div class="carousel-item">
+      <div class="onimg">
+      <img class="imagee"  src="image\contact us.png" class="d-block w-100" alt="...">
+      <div class="poni">
+        <h1 class="display-3">contact US!</h1>
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!--DOWN ArroW-->
+
+<div class="downarrow">
+<h2>Shop by Category</h2>
+<i class="icon fas fa-chevron-circle-down fa-7x"></i>
+</div>
+
+<!-- catigory body  -->
+<section id="category">
+<div class="container">
+     <div class="row">
+       <!-- catigory card  -->
+       <div class="card  col-ld-4" style="width: 18rem;">
+       <img src="image\womenfashion.jpg" class="cateimage">
+       <div class="body-card ">
+         <h2>Women's Fashion</h2>
+         <p>category description </p>
+         <p><a class="btn btn-secondary" href="#" role="button"  style="background-color:rgba(45,51,83,0.8);">View details &raquo;</a></p>
+       </div>
+       </div>
+       <!--end of card-->
+       <!-- catigory card  -->
+       <div class="card col-ld-4" style="width: 18rem;">
+       <img src="image\menfashion.jpg" class="cateimage">
+       <div class="body-card ">
+         <h2>Men's Fashion</h2>
+         <p>category description </p>
+         <p><a class="btn btn-secondary" href="#" role="button" style="background-color:rgba(45,51,83,0.8);">View details &raquo;</a></p>
+       </div>
+       </div>
+       <!--end of card-->
+       <!-- catigory card  -->
+       <div class="card col-ld-4" style="width: 18rem;">
+       <img src="image\Health_and_Beauty.jpg" class="cateimage">
+       <div class="body-card ">
+         <h2>Health and Beauty</h2>
+         <p>category description </p>
+         <p><a class="btn btn-secondary" href="#" role="button" style="background-color:rgba(45,51,83,0.8);">View details &raquo;</a></p>
+       </div>
+      </div>
+      <!--end of card-->
+      <!-- catigory card  -->
+      <div class="card col-ld-4" style="width: 18rem;">
+      <img src="image\makeup.jpg" class="cateimage">
+      <div class="body-card ">
+        <h2>Make up and Accessories</h2>
+        <p>category description </p>
+        <p><a class="btn btn-secondary" href="#" role="button" style="background-color:rgba(45,51,83,0.8);">View details &raquo;</a></p>
+      </div>
+      </div>
+      <!--end of card-->
+
+      <!-- catigory card  -->
+      <div class="card col-ld-4" style="width: 18rem;">
+      <img src="image\menacsse.jpeg" class="cateimage">
+      <div class="body-card ">
+        <h2>Men's accessories</h2>
+        <p>category description </p>
+        <p><a class="btn btn-secondary" href="#" role="button" style="background-color:rgba(45,51,83,0.8);">View details &raquo;</a></p>
+      </div>
+      </div>
+      <!--end of card-->
+
+      <!-- catigory card  -->
+      <div class="card col-ld-4" style="width: 18rem;">
+      <img src="image\grocery.jpg" class="cateimage">
+      <div class="body-card ">
+        <h2>Grocery</h2>
+        <p>category description </p>
+        <p><a class="btn btn-secondary" href="#" role="button" style="background-color:rgba(45,51,83,0.8);">View details &raquo;</a></p>
+      </div>
+      </div>
+      <!--end of card-->
+
+     </div><!--row-->
+</div>
+</section>
+<!--UP ArroW-->
+<div class="uparrow">
+<i class="icon fas fa-arrow-circle-up fa-3x"></i>
+</div>
+</body>

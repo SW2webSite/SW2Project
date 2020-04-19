@@ -1,0 +1,34 @@
+<%- include('header') -%>
+  <link rel="stylesheet" href="css\admin.css">
+
+
+<div>
+<button type="button" class="btn loged btn-outline-warning" >Log out</button>
+</div>
+
+
+<div class="row">
+<header>
+  <img class="logo" src="image\logo.jpeg" alt="" width="150" height="150" style=" opacity: 0.8">
+</header>
+
+<section id="admin-header">
+<div class="bbt">
+  <button type="button" class="btn del btn-outline-secondary" style="background-color:rgba(45,51,83,0.9);"><i class="fas fa-users"></i>    DELETE USER</button>
+  <button type="button" class="btn del btn-outline-secondary" style="background-color:rgba(45,51,83,0.9);"><i class="fas fa-store"></i>    DELETE PRODUCT</button>
+</div>
+</section>
+
+
+<section id="return-list">
+    <div class="list-group">
+      <div class="list-group-item">A<i onclick="removeElement(event)" class="far fa-trash-alt"></i></div>
+      <div class="list-group-item">B<i onclick="removeElement(event)" class="far fa-trash-alt"></i></div>
+      <div class="list-group-item">C<i onclick="removeElement(event)" class="far fa-trash-alt"></i></div>
+      <div class="list-group-item">D<i onclick="removeElement(event)" class="far fa-trash-alt"></i></div>
+    </div>
+</section>
+
+</div>
+
+<%- include('footer')  -%>

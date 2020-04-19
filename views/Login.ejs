@@ -1,0 +1,17 @@
+<%- include('header') -%>
+<form class="form-signin">
+  <img class="logo mb-4" src="image\logo.jpeg" alt="" width="150" height="150" style=" opacity: 0.8">
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" style="background-color:rgba(45,51,83,0.9);">Sign in</button>
+</form>
+
+<%- include('footer')  -%>
