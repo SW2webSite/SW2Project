@@ -1,12 +1,25 @@
 //jshint esversion:6
-const extendSchema = require('mongoose-extend-schema');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const PersonSchema = require('../models/Person.js');
 
-const UserSchema = extendSchema(PersonSchema,{
+const UserSchema = new mongoose.Schema({
+  username:{
+    type:String,
+    required:[true,"Please provide your Username"],
+    unique:true
+  },
   firstname: {type: String},
-  lastname: {type: String}
+  lastname: {type: String},
+  email:{
+    type:String,
+    required: [true, "Please provide your Email"],
+    unique:true
+  },
+  password:{
+    type:String,
+    required:[true,"Please provide your Password"]
+  },
 });
 
 UserSchema.pre('save', function(next){

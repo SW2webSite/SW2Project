@@ -1,64 +1,64 @@
 <%- include('header') -%>
+<div class="row">
+  <%     if(errors.length > 0){  %>
+          <ul class="list-group">
+          <%  errors.forEach(function(error){ %>
+              <li class="list-group-item text-danger"><%= error %></li>
+        <%    })  %>
+          </ul>
+          <%    } %>
+          <%     if(prodSuccess.length > 0){  %>
+                  <ul class="list-group">
+                      <li class="list-group-item text-success"><%= prodSuccess %></li>
+                  </ul>
+            <%    } %>
+</div>
 <link rel="stylesheet" href="css\add product.css">
-
 <div class="container product">
-                    <div class="row">
-                      <div class="backarrow">
-                        <i class="icon fas fa-backward fa-3x "></i>
-                      </div>
-
-                        <div class="col-md-9 product-right">
-
-                            <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                    <h1 class="product-heading">Add Product</h1>
-                                    <div class="row product-form">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                              <label class="control-label" for="product_namr">Product Name</label>
-                                                <input type="text" class="form-control" placeholder="Product Name *" value="" />
-                                            </div>
-
-                                            <div class=" form-group  ">
-                                               <label class="control-label" for="product_description">Product Description</label>
-                                                   <div >
-                                              <textarea class=" form-control" id="product_description" name="product_description"></textarea>
-                                             </div>
-                                          </div>
-
-                                            <div class="form-group">
-                                              <label class="control-label" for="product_price">Price</label>
-                                                <input type="number" class="form-control"  placeholder="$$" value="" />
-                                            </div>
-
-                                        </div>
-
-
-
-                                            <div class="form-group">
-                                              <label class="control-label" for="product_category">Product Category</label>
-                                                <select class="form-control">
-                                                    <option class="hidden"  selected disabled>Product Ctegory</option>
-                                                    <option>Women Fashion</option>
-                                                    <option>Men's Fashion</option>
-                                                    <option>Health and Care</option>
-                                                    <option>Beauty and Makeup</option>
-                                                    <option>Men's Accessories</option>
-                                                    <option>Grocary</option>
-
-                                                </select>
-                                            </div>
-
-                                            <hr class="mb-4">
-                                            <button class="btn btn-primary btn-lg btn-block" type="submit" style="background-color:rgba(45,51,83,0.9);">Submit</button>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
+  <div class="row">
+    <div class="backarrow">
+      <i class="icon fas fa-backward fa-3x "></i>
+    </div>
+    <div class="col-md-9 product-right">
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <h1 class="product-heading">Add Product</h1>
+          <form class="" action="/addproduct" method="post" enctype="multipart/form-data">
+            <div class="row product-form">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Product Name</label>
+                  <input type="text" name="productName" class="form-control" placeholder="Product Name *" value="" />
+                </div>
+                <div class=" form-group  ">
+                  <label class="control-label">Product Description</label>
+                  <div>
+                    <textarea class=" form-control" id="product_description" name="productDescription"></textarea>
+                  </div>
                 </div>
 
+                <div class="form-group">
+                  <label class="control-label">Price</label>
+                  <input type="number" class="form-control" name="productPrice" placeholder="$$" value="" />
+                </div>
+
+              </div>
+              <div class="form-group">
+                <label class="control-label">Product Category</label>
+                <select class="form-control" name="productCategory">
+                  <option class="hidden" selected disabled>Product Ctegory</option>
+                  <% Categories.forEach(function(category){ %>
+                    <option value="<%=category._id%>"><%=category.name%></option>
+                  <%  }) %>
+                </select>
+              </div>
+              <hr class="mb-4">
+              <button class="btn btn-primary btn-lg btn-block" type="submit" style="background-color:rgba(45,51,83,0.9);">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <%- include('footer')  -%>

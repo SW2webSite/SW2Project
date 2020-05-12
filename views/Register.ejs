@@ -1,21 +1,28 @@
 <%- include('header') -%>
 <div class="col-md-8 order-md-1" >
-      <form class="form-signup" novalidate >
+      <form class="form-signup" novalidate action='/register-user' method="POST" enctype="multipart/form-data">
           <img class="logo mb-4" src="image\logo.jpeg" alt="" width="120" height="120" >
           <h3 class="h3 mb-3 font-weight-normal">Sign Up</h3>
           <p>Already have an Account  <a href=""> login</a></p>
 
+          <%     if(errors.length > 0){  %>
+                  <ul class="list-group">
+                  <%  errors.forEach(function(error){ %>
+                      <li class="list-group-item text-danger"><%= error %></li>
+                <%    })  %>
+                  </ul>
+            <%    } %>
       <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName" style="font-size:20px">First name</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              <input type="text" class="form-control" name="firstname" placeholder="" value="" required>
               <div class="invalid-feedback">
               Valid first name is required.
               </div>
             </div>
             <div class="col-md-6 mb-3">
               <label for="lastName" style="font-size:20px">Last name</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <input type="text" class="form-control" name="lastname" placeholder="" value="" required>
               <div class="invalid-feedback">
               Valid last name is required.
               </div>
@@ -28,7 +35,7 @@
           <div class="input-group-prepend">
           <span class="input-group-text">@</span>
           </div>
-          <input type="text" class="form-control" id="username" placeholder="Username" required>
+          <input type="text" class="form-control" name="username" placeholder="Username" required>
           <div class="invalid-feedback" style="width: 100%;">
           Your username is required.
           </div>
@@ -37,7 +44,7 @@
 
       <div class="mb-3">
           <label for="email" style="font-size:20px">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="you@example.com">
+          <input type="email" class="form-control" name="email" placeholder="you@example.com">
           <div class="invalid-feedback">
           Please enter a valid email address for shipping updates.
           </div>
@@ -45,7 +52,7 @@
 
       <div class="mb-3">
           <label for="password" style="font-size:20px">password</label>
-          <input type="password" class="form-control" id="password" >
+          <input type="password" class="form-control" name="password" >
           <div class="invalid-feedback">
           Please enter a valid password for shipping updates.
           </div>

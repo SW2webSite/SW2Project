@@ -44,70 +44,18 @@
 <section id="category">
 <div class="container">
      <div class="row">
+       <% Categories.forEach(function(category){ %>
        <!-- catigory card  -->
-       <div class="card  col-ld-4" style="width: 18rem;">
-       <img src="image\womenfashion.jpg" class="cateimage">
-       <div class="body-card ">
-         <h2>Women's Fashion</h2>
-         <p>category description </p>
-         <p><a class="btn btn-secondary" href="#" role="button"  style="background-color:rgba(45,51,83,0.8);">View details &raquo;</a></p>
-       </div>
-       </div>
+         <div class="card  col-ld-4" style="width: 18rem;">
+           <img src="<%= category.img %>" class="cateimage">
+           <div class="body-card ">
+             <h2><%= category.name %></h2>
+             <p><%= category.description %></p>
+             <p><a class="btn btn-secondary" href="#" role="button"  style="background-color:rgba(45,51,83,0.8);">View details &raquo;</a></p>
+           </div>
+         </div>
+         <%  }) %>
        <!--end of card-->
-
-       <!-- catigory card  -->
-       <div class="card col-ld-4" style="width: 18rem;">
-       <img src="image\menfashion.jpg" class="cateimage">
-       <div class="body-card ">
-         <h2>Men's Fashion</h2>
-         <p>category description </p>
-         <p><a class="btn btn-secondary" href="#" role="button" style="background-color:rgba(45,51,83,0.8);">View details &raquo;</a></p>
-       </div>
-       </div>
-       <!--end of card-->
-       <!-- catigory card  -->
-       <div class="card col-ld-4" style="width: 18rem;">
-       <img src="image\Health_and_Beauty.jpg" class="cateimage">
-       <div class="body-card ">
-         <h2>Health and Beauty</h2>
-         <p>category description </p>
-         <p><a class="btn btn-secondary" href="#" role="button" style="background-color:rgba(45,51,83,0.8);">View details &raquo;</a></p>
-       </div>
-      </div>
-      <!--end of card-->
-      <!-- catigory card  -->
-      <div class="card col-ld-4" style="width: 18rem;">
-      <img src="image\makeup.jpg" class="cateimage">
-      <div class="body-card ">
-        <h2>Make up and Accessories</h2>
-        <p>category description </p>
-        <p><a class="btn btn-secondary" href="#" role="button" style="background-color:rgba(45,51,83,0.8);">View details &raquo;</a></p>
-      </div>
-      </div>
-      <!--end of card-->
-
-      <!-- catigory card  -->
-      <div class="card col-ld-4" style="width: 18rem;">
-      <img src="image\menacsse.jpeg" class="cateimage">
-      <div class="body-card ">
-        <h2>Men's accessories</h2>
-        <p>category description </p>
-        <p><a class="btn btn-secondary" href="#" role="button" style="background-color:rgba(45,51,83,0.8);">View details &raquo;</a></p>
-      </div>
-      </div>
-      <!--end of card-->
-
-      <!-- catigory card  -->
-      <div class="card col-ld-4" style="width: 18rem;">
-      <img src="image\grocery.jpg" class="cateimage">
-      <div class="body-card ">
-        <h2>Grocery</h2>
-        <p>category description </p>
-        <p><a class="btn btn-secondary" href="#" role="button" style="background-color:rgba(45,51,83,0.8);">View details &raquo;</a></p>
-      </div>
-      </div>
-      <!--end of card-->
-
      </div><!--row-->
 </div>
 </section>

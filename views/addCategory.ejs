@@ -1,0 +1,53 @@
+<%- include('header') -%>
+<div class="row">
+    <%     if(catErrors.length > 0){  %>
+            <ul class="list-group">
+            <%  catErrors.forEach(function(error){ %>
+                <li class="list-group-item text-danger"><%= error %></li>
+          <%    })  %>
+            </ul>
+      <%    } %>
+      <%     if(catSuccess.length > 0){  %>
+              <ul class="list-group">
+                  <li class="list-group-item text-success"><%= catSuccess %></li>
+              </ul>
+        <% } %>
+</div>
+<link rel="stylesheet" href="css\add product.css">
+<div class="container product">
+  <div class="row">
+    <div class="backarrow">
+      <i class="icon fas fa-backward fa-3x "></i>
+    </div>
+    <div class="col-md-9 product-right">
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <h1 class="product-heading">Add Category</h1>
+          <div class="row">
+            <form class="" action="/addcategory" method="post" enctype="multipart/form-data">
+              <div class="row product-form">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label">Category Name</label>
+                    <input type="text" name="categoryName" class="form-control" placeholder="Category Name *" value="" />
+                  </div>
+                  <div class=" form-group  ">
+                    <label class="control-label">Category Description</label>
+                    <div>
+                      <textarea class=" form-control" name="categoryDescription"></textarea>
+                    </div>
+                  </div>
+
+                </div>
+                <input type="file" name="image" class="form-control form-control-file" value="">
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit" style="background-color:rgba(45,51,83,0.9);">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('footer') -%>

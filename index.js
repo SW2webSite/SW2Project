@@ -5,11 +5,21 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const cors = require('cors');
-const multer = require('multer')().single();
+const fileUpload = require('express-fileupload');
+
 
 
 //Controllers
+const homePageController = require('./controllers/homePage');
+const adminPageController = require('./controllers/adminPage');
+const productPageController = require('./controllers/productPage');
+const profilePageController = require('./controllers/profilePage');
+const addProductPageController = require('./controllers/addProductPage');
+const addCategoryPageController = require('./controllers/addCategoryPage');
+const addProductController = require('./controllers/addProduct');
+const addCategoryController = require('./controllers/addCategory');
 const userLoginController = require('./controllers/userLogin');
+const logoutController = require('./controllers/logout');
 const loginPageController = require('./controllers/loginPage');
 const registerPageController = require('./controllers/registerPage');
 const userRegisterController = require('./controllers/userRegister');
@@ -35,19 +45,31 @@ app.use(session({
 app.use(connectFlash());
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
-app.use(bodyParser.json({ limit: '50mb', extended: true }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-app.use(multer);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(fileUpload());
 app.use("*", function(req, res, next){
   global.auth = req.session.userId;
+  global.Name = req.session.fullName;
   next();
 });
 
+const auth = require('./Middleware/auth');
+const redirectIfAuthenticated = require('./Middleware/redirectIfAuthenticated');
 
-app.get('/auth/login', loginPageController);
-app.get('/auth/register', registerPageController);
-app.post('/auth/login', userLoginController);
-app.post('/users/register', userRegisterController);
+app.get('/', homePageController);
+app.get('/admin', adminPageController);
+app.get('/product', productPageController);
+app.get('/profile', profilePageController);
+app.get('/addproduct', auth, addProductPageController);
+app.get('/addcategory', addCategoryPageController);
+app.get('/login', redirectIfAuthenticated, loginPageController);
+app.get('/logout', auth, logoutController);
+app.get('/register', registerPageController);
+app.post('/login-user', userLoginController);
+app.post('/register-user', userRegisterController);
+app.post('/addproduct', auth, addProductController);
+app.post('/addcategory', addCategoryController);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

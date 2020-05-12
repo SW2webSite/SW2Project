@@ -9,16 +9,18 @@ module.exports = function(req, res){
   User.findOne({ email: email }, function(err, user){
     if(user){
       req.session.userId = user._id;
+      console.log(user);
       req.session.username = user.username;
+      req.session.fullName = user.firstname + ' ' + user.lastname;
       bcrypt.compare(password, user.password, function(err, same){
         if(same){
           res.redirect('/');
         }else{
-          res.redirect('/auth/login');
+          res.redirect('/login');
         }
       });
     }else{
-      return res.redirect('/auth/login');
+      return res.redirect('/login');
     }
   });
 };

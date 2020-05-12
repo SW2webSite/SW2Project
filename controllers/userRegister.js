@@ -9,8 +9,8 @@ module.exports= function(req, res){
       req.session.registerationErrors = registerationErrors;
       req.flash('registerationErrors', registerationErrors);
       req.flash('data', req.body);
-      return res.redirect('/auth/register');
+      return res.redirect('/register');
     }
-    return res.redirect('/auth/register');
+    return res.redirect('/login');
   });
 };
