@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const cors = require('cors');
-const multer = require('multer')().single();
-const fileUpload = require('express-fileupload');
+var multer  = require('multer');
+var upload = multer({ dest: './public/image/' });
 
 
 //Controllers
@@ -48,8 +48,6 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(multer);
-app.use(fileUpload());
 app.use("*", function(req, res, next){
   global.auth = req.session.userId;
   global.Name = req.session.fullName;
@@ -65,13 +63,13 @@ app.get('/product', productPageController);
 app.get('/profile', profilePageController);
 app.get('/addproduct', auth, addProductPageController);
 app.get('/addcategory', addCategoryPageController);
-app.get('/login', loginPageController);
+app.get('/login', redirectIfAuthenticated, loginPageController);
 app.get('/logout', auth, logoutController);
-app.get('/register', registerPageController);
-app.post('/login-user', userLoginController);
-app.post('/register-user', userRegisterController);
-app.post('/addproduct', auth, addProductController);
-app.post('/addcategory', addCategoryController);
+app.get('/register', redirectIfAuthenticated, registerPageController);
+app.post('/login-user', upload.none(), userLoginController);
+app.post('/register-user', upload.none(), userRegisterController);
+app.post('/addproduct', upload.none(),  auth, addProductController);
+app.post('/addcategory', upload.single('image'), addCategoryController);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

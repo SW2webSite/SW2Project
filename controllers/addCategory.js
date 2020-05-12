@@ -4,10 +4,9 @@ var _ = require('lodash');
 var path = require('path');
 
 module.exports = function(req, res){
-  console.log(req.files);
+  console.log(req.file);
   cat_name = (req.body.categoryName).toLowerCase();
-  const {image} = req.files;
-  image.mv(path.resolve(__dirname, ".." , 'public/image', image.name), function(error){
+  const {image} = req.file;
     Category.find({name: cat_name}, function(err, doc){
       if(doc.length){
         req.flash('categoryAddErrors', cat_name + ' Already Exists!');
@@ -16,7 +15,7 @@ module.exports = function(req, res){
       }else{
         category = Category.create({
           name: cat_name,
-          img: '/image/' + image.name,
+          img: '/image/' + req.file.originalname,
           description: req.body.categoryDescription
         }, function(error, category){
           if(error){
@@ -32,5 +31,4 @@ module.exports = function(req, res){
         });
       }
     });
-  });
 };
