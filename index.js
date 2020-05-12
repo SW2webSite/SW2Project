@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const cors = require('cors');
+const multer = require('multer')().single();
 const fileUpload = require('express-fileupload');
-
 
 
 //Controllers
@@ -28,6 +28,7 @@ const connectFlash = require('connect-flash');
 
 const app = express();
 
+
 mongoose.connect('mongodb://localhost:27017/onlineShoppingDB', {useNewUrlParser: true, useUnifiedTopology: true}, function(err){
   if(err) return console.log(err);
   console.log('Successfully connected to Database');
@@ -47,6 +48,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(multer);
 app.use(fileUpload());
 app.use("*", function(req, res, next){
   global.auth = req.session.userId;
@@ -63,7 +65,7 @@ app.get('/product', productPageController);
 app.get('/profile', profilePageController);
 app.get('/addproduct', auth, addProductPageController);
 app.get('/addcategory', addCategoryPageController);
-app.get('/login', redirectIfAuthenticated, loginPageController);
+app.get('/login', loginPageController);
 app.get('/logout', auth, logoutController);
 app.get('/register', registerPageController);
 app.post('/login-user', userLoginController);
