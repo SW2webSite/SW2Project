@@ -1,7 +1,6 @@
 //jshint esversion:6
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const PersonSchema = require('../models/Person.js');
 
 const UserSchema = new mongoose.Schema({
   username:{
@@ -20,6 +19,10 @@ const UserSchema = new mongoose.Schema({
     type:String,
     required:[true,"Please provide your Password"]
   },
+  role:{
+    type: String,
+    default: "user"
+  }
 });
 
 UserSchema.pre('save', function(next){

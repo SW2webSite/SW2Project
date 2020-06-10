@@ -8,6 +8,7 @@ module.exports = function(req, res){
     description: req.body.productDescription,
     category: req.body.productCategory,
     owner: req.session.userId,
+    img: '/image/' + req.file.originalname,
   }, function(error, prod){
     if(error){
       console.log(error);
