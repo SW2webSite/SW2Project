@@ -1,0 +1,62 @@
+<%- include('header') -%>
+<link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/home-header.css">
+<%- include('nav')  -%>
+
+<div class="container">
+  <div class="row">
+    <% for (var i = 0; i < products.length; i++) { %>
+    <a href="/products/<%= products[i]._id %>">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="<%= products[i].img %>">
+          <div class="caption">
+            <h3>Name:
+              <%= products[i].name %>
+            </h3>
+            <p>Category:
+              <%= products[i].category.name %>
+            </p>
+            <p>Price:
+              <%= products[i].price %> L.E</p>
+          </div>
+        </div>
+      </div>
+    </a>
+    <% } %>
+  </div>
+  <% if (pages > 0) { %>
+  <ul class="pagination text-center">
+    <% if (current == 1) { %>
+    <li class="disabled"><a>First</a></li>
+    <% } else { %>
+    <li><a href="/products/1">First</a></li>
+    <% } %>
+    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+    <% if (i !== 1) { %>
+    <li class="disabled"><a>...</a></li>
+    <% } %>
+    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+    <% if (i == current) { %>
+    <li class="active"><a>
+        <%= i %></a></li>
+    <% } else { %>
+    <li><a href="/products/<%= i %>">
+        <%= i %></a></li>
+    <% } %>
+    <% if (i == Number(current) + 4 && i < pages) { %>
+    <li class="disabled"><a>...</a></li>
+    <% } %>
+    <% } %>
+    <% if (current == pages) { %>
+    <li class="disabled"><a>Last</a></li>
+    <% } else { %>
+    <li><a href="/products/<%= pages %>">Last</a></li>
+    <% } %>
+  </ul>
+  <% } %>
+</div>
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<%- include('footer')  -%>

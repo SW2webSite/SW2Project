@@ -23,6 +23,11 @@ const logoutController = require('./controllers/logout');
 const loginPageController = require('./controllers/loginPage');
 const registerPageController = require('./controllers/registerPage');
 const userRegisterController = require('./controllers/userRegister');
+const addToCartController = require('./controllers/AddToCart');
+const cartPageController = require('./controllers/cartPage');
+const removeFromCartController = require('./controllers/removeFromCart');
+const getProductPageController = require('./controllers/getProduct');
+const editProfileController = require('./controllers/editProfile');
 const connectMongo = require('connect-mongo');
 const connectFlash = require('connect-flash');
 
@@ -42,6 +47,8 @@ app.use(session({
     mongooseConnection: mongoose.connection
   })
 }));
+const cartLength = require('./Middleware/cartLength');
+const categories = require('./Middleware/categs');
 
 app.use(connectFlash());
 app.use(express.static('public'));
@@ -51,25 +58,41 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("*", function(req, res, next){
   global.auth = req.session.userId;
   global.Name = req.session.fullName;
+  global.adminAuth = false;
+  if(req.session.role == 'Admin'){
+    global.adminAuth = true;
+  }
   next();
 });
-
+app.use(cartLength);
+app.use(categories);
+//Middlewares
 const auth = require('./Middleware/auth');
+const adminAuth = require('./Middleware/adminAuth');
 const redirectIfAuthenticated = require('./Middleware/redirectIfAuthenticated');
+
+
+
 
 app.get('/', homePageController);
 app.get('/admin', adminPageController);
-app.get('/product', productPageController);
+app.get('/products', productPageController);
 app.get('/profile', profilePageController);
 app.get('/addproduct', auth, addProductPageController);
 app.get('/addcategory', addCategoryPageController);
 app.get('/login', redirectIfAuthenticated, loginPageController);
 app.get('/logout', auth, logoutController);
 app.get('/register', redirectIfAuthenticated, registerPageController);
+app.get('/cart', auth, cartPageController);
+app.get('/products/:id', upload.none(), getProductPageController);
 app.post('/login-user', upload.none(), userLoginController);
-app.post('/register-user', upload.none(), userRegisterController);
-app.post('/addproduct', upload.none(),  auth, addProductController);
-app.post('/addcategory', upload.single('image'), addCategoryController);
+app.post('/register-user', upload.none(), redirectIfAuthenticated, userRegisterController);
+app.post('/addproduct', upload.single('image'),  auth, addProductController);
+app.post('/addcategory', upload.single('image'), adminAuth, addCategoryController);
+app.post('/products/:product_id', upload.none(), addToCartController);
+app.post('/remove-from-cart', upload.none(), adminAuth, removeFromCartController);
+app.post('/edit-profile', upload.none(), editProfileController);
+
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

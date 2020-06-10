@@ -1,11 +1,25 @@
 //jshint esversion:6
-const Category = require('../models/Category');
-module.exports = async function(req, res){
+const Product = require('../models/Product');
+
+module.exports = async function(req, res, next) {
   try{
-    const Categories = await Category.find({});
-    res.render('product', {
-      Categories: Categories
-    });
+    var perPage = 9;
+    var page = req.params.page || 1;
+    await Product
+        .find({})
+        .skip((perPage * page) - perPage)
+        .limit(perPage)
+        .populate('category')
+        .exec(function(err, products) {
+            Product.count().exec(function(err, count) {
+                if (err) return next(err);
+                return res.render('products', {
+                    products: products,
+                    current: page,
+                    pages: Math.ceil(count / perPage),
+                });
+            });
+        });
   }catch(err){
     console.log(err);
   }
