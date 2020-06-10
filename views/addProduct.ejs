@@ -1,18 +1,5 @@
 <%- include('header') -%>
-<div class="row">
-  <%     if(errors.length > 0){  %>
-          <ul class="list-group">
-          <%  errors.forEach(function(error){ %>
-              <li class="list-group-item text-danger"><%= error %></li>
-        <%    })  %>
-          </ul>
-          <%    } %>
-          <%     if(prodSuccess.length > 0){  %>
-                  <ul class="list-group">
-                      <li class="list-group-item text-success"><%= prodSuccess %></li>
-                  </ul>
-            <%    } %>
-</div>
+<%- include('nav') -%>
 <link rel="stylesheet" href="css\add product.css">
 <div class="container product">
   <div class="row">
@@ -52,6 +39,7 @@
                   <%  }) %>
                 </select>
               </div>
+              <input type="file" name="image" class="form-control form-control-file" value="">
               <hr class="mb-4">
               <button class="btn btn-primary btn-lg btn-block" type="submit" style="background-color:rgba(45,51,83,0.9);">Submit</button>
             </div>
@@ -61,4 +49,20 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <%     if(errors.length > 0){  %>
+          <ul class="list-group">
+          <%  errors.forEach(function(error){ %>
+              <li class="list-group-item text-danger"><%= error %></li>
+        <%    })  %>
+          </ul>
+          <%    } %>
+          <%     if(prodSuccess.length > 0){  %>
+                  <ul class="list-group">
+                      <li class="list-group-item text-success"><%= prodSuccess %></li>
+                  </ul>
+            <%    } %>
+</div>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <%- include('footer')  -%>
