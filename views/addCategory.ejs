@@ -1,19 +1,7 @@
 <%- include('header') -%>
-<div class="row">
-    <%     if(catErrors.length > 0){  %>
-            <ul class="list-group">
-            <%  catErrors.forEach(function(error){ %>
-                <li class="list-group-item text-danger"><%= error %></li>
-          <%    })  %>
-            </ul>
-      <%    } %>
-      <%     if(catSuccess.length > 0){  %>
-              <ul class="list-group">
-                  <li class="list-group-item text-success"><%= catSuccess %></li>
-              </ul>
-        <% } %>
-</div>
-<link rel="stylesheet" href="css\add product.css">
+<%- include('nav') -%>
+
+<link rel="stylesheet" href="css/add product.css">
 <div class="container product">
   <div class="row">
     <div class="backarrow">
@@ -50,4 +38,20 @@
     </div>
   </div>
 </div>
+<div class="row">
+    <%     if(catErrors.length > 0){  %>
+            <ul class="list-group">
+            <%  catErrors.forEach(function(error){ %>
+                <li class="list-group-item text-danger"><%= error %></li>
+          <%    })  %>
+            </ul>
+      <%    } %>
+      <%     if(catSuccess.length > 0){  %>
+              <ul class="list-group">
+                  <li class="list-group-item text-success"><%= catSuccess %></li>
+              </ul>
+        <% } %>
+</div>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <%- include('footer') -%>
