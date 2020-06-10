@@ -1,150 +1,120 @@
 <%- include('header') -%>
-<!--profile-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/home-header.css">
+<body style="background-image: url('image/profileBack.jpg');  background-repeat: no-repeat;  background-attachment: fixed;  background-size: 100% 100%;">
+  <%- include('nav')  -%>
 
-
-<body  style="background-image: url('image/profileBack.jpg');  background-repeat: no-repeat;  background-attachment: fixed;  background-size: 100% 100%;">
-<%- include('nav')  -%>
-
-<div class="container bootstrap snippet">
-<div class="row">
-  <div class="col-sm-10"><h1>User name</h1></div>
-</div>
-<div class="row">
-
-  <div class="col-sm-3"><!--left col-->
-  <div class="text-center">
-    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-    <h6>Upload a different photo...</h6>
-    <input type="file" class="text-center center-block file-upload">
-  </div><br>
-  </div><!--/col-3-->
-
-  <div class="col-sm-9">
-        <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-        <% if(myprof==="yes"){ %>
-           <li><a data-toggle="tab" href="#messages">Edit</a></li>
-           <li><a data-toggle="tab" href="#settings">My Store</a></li>
-          <%}else{%>
-            <li><a data-toggle="tab" href="#settings">Store</a></li>
-          <% } %>
-          </ul>
-
-
-  <div class="tab-content">
-
-        <div class="tab-pane active" id="home">
-              <form class="form" action="##" method="post" id="registrationForm">
-                  <div class="form-group">
-                  <div class="col-xs-8">
-                  <label for="first_name"><h4>Username</h4></label>
-                  <p> my name </p>
-                  </div>
-                  </div>
-
-                  <div class="form-group">
-                  <div class="col-xs-8">
-                  <label for="last_name"><h4>Mobile</h4></label>
-                  <p>011--------</p>
-                  </div>
-                  </div>
-
-                  <div class="form-group">
-                  <div class="col-xs-8">
-                  <label for="email"><h4>Email</h4></label>
-                  <p> myemail@gmail.com</p>
-                  </div>
-                  </div>
-            </form>
+  <div class="container bootstrap snippet">
+    <div class="row">
+      <div class="col-sm-10">
+        <h1><%= user.username %></h1>
       </div>
-      <!--/tab-pane-->
+    </div>
+    <div class="row">
 
-      <div class="tab-pane" id="messages">
-        <form class="form" action="##" method="post" id="registrationForm">
-                  <div class="form-group">
-                  <div class="col-xs-6">
-                  <label for="first_name"><h4>First name</h4></label>
-                  <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
-                  </div>
-                  </div>
+      <div class="col-sm-3">
+        <!--left col-->
+        <div class="text-center">
+          <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        </div><br>
+      </div>
+      <!--/col-3-->
 
-                  <div class="form-group">
-                  <div class="col-xs-6">
-                  <label for="last_name"><h4>Last name</h4></label>
-                  <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
-                  </div>
-                  </div>
+      <div class="col-sm-9">
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+          <li><a data-toggle="tab" href="#messages">Edit</a></li>
 
-                  <div class="form-group">
-                  <div class="col-xs-6">
-                  <label for="mobile"><h4>Mobile</h4></label>
-                  <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
-                  </div>
-                  </div>
+        </ul>
 
-                  <div class="form-group">
-                  <div class="col-xs-6">
-                  <label for="email"><h4>Email</h4></label>
-                  <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-                  </div>
-                  </div>
+        <div class="tab-content">
 
-                  <div class="form-group">
-                  <div class="col-xs-6">
-                  <label for="password"><h4>Password</h4></label>
-                  <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-                  </div>
-                  </div>
+          <div class="tab-pane active" id="home">
+            <form class="form" action="##" method="post" id="registrationForm">
+              <div class="form-group">
+                <div class="col-xs-8">
+                  <label for="first_name">
+                    <h4>Username</h4>
+                  </label>
+                  <p><%= user.username %></p>
+                </div>
+              </div>
 
-                  <div class="form-group">
-                  <div class="col-xs-12">
+              <div class="form-group">
+                <div class="col-xs-8">
+                  <label for="last_name">
+                    <h4>Role</h4>
+                  </label>
+                  <p><%= user.role %></p>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-xs-8">
+                  <label for="email">
+                    <h4>Email</h4>
+                  </label>
+                  <p> <%= user.email %></p>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!--/tab-pane-->
+
+          <div class="tab-pane" id="messages">
+            <form class="form" action="/edit-profile" method="post" id="registrationForm">
+              <div class="form-group">
+                <div class="col-xs-6">
+                  <label for="first_name">
+                    <h4>First name</h4>
+                  </label>
+                  <input type="text" class="form-control" name="firstname" id="first_name" placeholder="first name" value="<%= user.firstname %>">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-xs-6">
+                  <label for="last_name">
+                    <h4>Last name</h4>
+                  </label>
+                  <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" value="<%= user.lastname %>">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-xs-6">
+                  <label for="email">
+                    <h4>Email</h4>
+                  </label>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" value="<%= user.email %>">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-xs-12">
                   <br>
                   <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                  <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                  </div>
-                  </div>
-            </form>
-         </div>
-
-<!--/tab-pane-->
-
-         <div class="tab-pane" id="settings">
-  <% if(myprof==="yes"){ %>
-                  <form class="" action="/" method="post">
-                  <button type="submit" name ="add" class="btn-a btn-sm btn-outline-secondary"><img src="image/plus.jpg"  style="width:150px;height:150px;border:0; border-radius: 50%;"></button>
-                  </form>
-<% } %>
-<form action="/del" method="post">
-        <% for (var i=0; i<newproduct.length; i++){ %>
-          <div class="form-group">
-              <div class="col-xs-6">
-                      <div class="card col-lg-2 col-md-4" style="width: 18rem;">
-                      <img src="image\product.png" class="proimage">
-                      <div class="body-card">
-                        <h4><%=newproduct[i].name%></h4>
-                        <small class="text">Price</small>
-                        <div class="btn d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="submit" class="btn btn-sm btn-outline-secondary">edit <i class="far fa-edit"></i></button>
-                        <button type="submit" name="del" value="<%= newproduct[i]._id %>">Delete</button>
-                        </div>
-                        </div>
-                      </div>
-                  </div>
-                  <!--end of card-->
+                </div>
               </div>
-            </div>
-          <% } %>
+            </form>
+          </div>
 
-</from>
-</div><!--/tab-pane-->
+          <!--/tab-pane-->
 
-</div><!--/tab-content-->
-</div><!--/col-9-->
-</div><!--/row-->
-</div>
+          <div class="tab-pane" id="settings">
+            <form class="" action="/" method="post">
+              <button type="submit" name="add" class="btn-a btn-sm btn-outline-secondary"><img src="image/plus.jpg" style="width:150px;height:150px;border:0; border-radius: 50%;"></button>
+            </form>
+          </div>
+          <!--/tab-pane-->
 
-<%- include('footer')  -%>
+        </div>
+        <!--/tab-content-->
+      </div>
+      <!--/col-9-->
+    </div>
+    <!--/row-->
+  </div>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <%- include('footer')  -%>
